@@ -1,22 +1,27 @@
 const prompt = require("prompt-sync")()
 
-const password = prompt("Senha: ")
+while (true) {
+    const password = prompt("Senha: ")
 
-let upperCaseLetter = 0;
-let lowerCaseLetter = 0;
+    let upperCaseLetter = 0;
+    let lowerCaseLetter = 0;
 
-for (const letter of password) {
-    if ((/[a-z]/).test(letter)) {
-        lowerCaseLetter++
-    } else if ((/[A-Z]/).test(letter)) {
-        upperCaseLetter++
+
+    for (const letter of password) {
+        if ((/[a-z]/).test(letter)) {
+            lowerCaseLetter++
+        } else if ((/[A-Z]/).test(letter)) {
+            upperCaseLetter++
+        }
     }
-}
 
-if (password < 8 || upperCaseLetter == 0 || lowerCaseLetter == 0) {
-    console.log('Erro: Senha deve conter no mínimo 8 caracteres, letras minúsculas e maiúsculas.')
-} else {
-    console.log('Senha definida com sucesso!')
+    if (password < 8 || upperCaseLetter == 0 || lowerCaseLetter == 0) {
+        console.log('Erro: Senha deve conter no mínimo 8 caracteres, letras minúsculas e maiúsculas.')
+    } else {
+        console.log('Senha definida com sucesso!')
+        break;
+    }
+      
 }
 
 
